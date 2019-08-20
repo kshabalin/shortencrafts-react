@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<img
+  alt="shortencrafts"
+  height="21"
+  src="logo.png"
+  width="191"
+/>
+`;

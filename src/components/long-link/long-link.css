@@ -1,0 +1,14 @@
+.long-url {
+    display: block;
+    margin-top: 14px;
+}
+
+.long-url a {
+    color: #000;
+    text-decoration: none;
+}
+
+.long-url a:hover {
+    color: #F16534;
+    text-decoration: underline;
+}

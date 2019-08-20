@@ -1,0 +1,33 @@
+.container {
+    margin:0 auto;
+    max-width:1025px;
+    width:100%;
+}
+
+.main {
+    margin-top:276px;
+}
+
+.inner-header {
+    align-items:center;
+    display:flex;
+    justify-content:space-between;
+    margin-top:50px;
+}
+
+.header-logo img {
+    display:block;
+}
+
+.nav-link {
+    color:#F16534;
+    display:inline-block;
+    font-weight:bold;
+    margin-right:20px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+.nav-link-active {
+    opacity:.5;
+}

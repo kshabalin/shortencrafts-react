@@ -1,0 +1,53 @@
+.table-row {
+    display:flex;
+    flex-direction:row;
+    flex-grow:0;
+    flex-wrap:wrap;
+    padding-left:15px;
+    padding-right:15px;
+    width:100%;
+}
+
+.cell {
+    align-items:center;
+    display:flex;
+    flex-grow:1;
+    overflow:hidden;
+    padding-bottom:3px;
+    padding-right:20px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:25%;
+}
+
+.cell.short a {
+    color:#F16534;
+    text-decoration: none;
+}
+.cell.long a {
+    color: #1181e3;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cell.short a, .cell.long a {
+    text-decoration: none;
+}
+
+.cell.long a:hover, .cell.short a:hover {
+    text-decoration: underline;
+}
+
+
+.cell span {
+    align-items:center;
+    display:inline-flex;
+}
+
+.flag {
+    height:20px;
+    margin-right:8px;
+    overflow:hidden;
+    width:20px;
+}

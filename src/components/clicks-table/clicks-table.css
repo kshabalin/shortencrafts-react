@@ -1,0 +1,147 @@
+.table-row {
+    border-bottom:1px solid #e0e0e0;
+    border-collapse:collapse;
+    padding-top:5px;
+}
+
+.table-row.table-header,.table-row.table-bottom {
+    background-color:#e3e6e7;
+    font-weight:bold;
+    padding-bottom:8px;
+    padding-top:8px;
+    text-transform:uppercase;
+}
+
+.table-row.table-header {
+    border-radius:5px 5px 0 0;
+}
+
+.table-row.table-bottom {
+    border-radius:0 0 5px 5px;
+    font-weight:normal;
+    text-transform:capitalize;
+}
+
+.stats-filter-container {
+    background-color:#e3e6e7;
+    border:1px solid #e0e0e0;
+    border-radius:5px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    max-width:700px;
+    width:100%;
+}
+
+.filter {
+    display:flex;
+    padding:5px 10px;
+    width:50%;
+}
+
+.filter-reset {
+    padding:5px;
+    width:10%;
+}
+
+.filter-reset-button {
+    background:url(../../assets/images/clear.png) 50% 50% no-repeat!important;
+    border:none;
+    height:26px;
+    width:26px;
+}
+
+.filter-reset-button:hover {
+    cursor:pointer;
+}
+
+.react-autosuggest__input,.filter-input {
+    border:1px solid #e0e0e0;
+    border-radius:3px;
+    height:25px;
+    margin-left:5px;
+    padding-left:5px;
+    width:100%;
+}
+
+.react-autosuggest__input--open {
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+}
+
+.react-autosuggest__input:focus {
+    outline:none;
+}
+
+select {
+    border:1px solid #e0e0e0;
+    font-size:14px;
+    height:25px;
+    margin-left:5px;
+    width:43px;
+}
+
+.react-autosuggest__container {
+    position:relative;
+    width:100%;
+}
+
+.react-autosuggest__suggestions-container--open {
+    background-color:#fff;
+    border:1px solid #e0e0e0;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    display:block;
+    font-family:'Open Sans', sans-serif;
+    font-size:16px;
+    font-weight:300;
+    left:5px;
+    position:absolute;
+    top:25px;
+    width:100%;
+    z-index:2;
+}
+
+.react-autosuggest__suggestions-list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+.react-autosuggest__suggestion {
+    cursor:pointer;
+    padding:10px 20px;
+}
+
+.pagination {
+    align-items:center;
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+}
+
+.page-bar {
+    display:inline-block;
+}
+
+.page-bar button {
+    background-color:#e3e6e7;
+    border:none;
+    color:black;
+    float:left;
+    font-size:14px;
+    outline:none;
+    padding:5px 13px;
+    text-decoration:none;
+}
+
+.page-bar button.active {
+    background-color:#989b9b;
+    border-radius:5px;
+    color:white;
+}
+
+.page-bar button:hover:not(.active) {
+    background-color:#c3c6c7;
+    border-radius:5px;
+}
