@@ -48,7 +48,6 @@ export default class Login extends Component {
     };
 
     render() {
-        console.log(`loggedin ${this.state.loggedIn}`);
         return (
             this.state.loggedIn ?
                 (
