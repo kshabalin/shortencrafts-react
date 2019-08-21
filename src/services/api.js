@@ -3,9 +3,11 @@ import decode from 'jwt-decode';
 
 export default class API {
 
+    _baseURL = "https://shortencraftsapi.herokuapp.com/api";
+
     get = async (url, params) => {
         const res = await axios.get(
-            url,
+            `${this._baseURL}${url}`,
             {
                 params: params,
                 headers: {Authorization: this.getAuthHeader()}}
@@ -20,7 +22,7 @@ export default class API {
 
     post = async (url, data) => {
         const res = await axios.post(
-            url,
+            `${this._baseURL}${url}`,
             data,
             {headers: {Authorization: this.getAuthHeader()}}
         );
