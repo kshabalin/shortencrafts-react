@@ -45,7 +45,7 @@ export default class API {
 
     login = async (email, password) => {
         try {
-            const res = await axios.post('/signin', {auth: {email: email, password: password}});
+            const res = await axios.post(`${this._baseURL}/signin`, {auth: {email: email, password: password}});
             const {data: {jwt}} = res;
             this.setToken(jwt);
             return true;
@@ -57,7 +57,7 @@ export default class API {
 
     signup = async (user) => {
         try {
-            await  axios.post('/signup', {user: user});
+            await  axios.post(`${this._baseURL}/signup`, {user: user});
             return true;
         } catch (e) {
             console.log(`Failed to register new user! ${e.message}`);
