@@ -28,10 +28,15 @@ export default class Shortener extends Component {
         const url_hash = this.shortenerService.getShorten(value);
         const link = await this.api.shorten(url_hash, value);
 
-        this.setState({
-            longUrl: value,
-            value: link.short
-        });
+        if (link) {
+            this.setState({
+                longUrl: value,
+                value: link.short
+            });
+        } else {
+            alert("Failed to shorten a link! Something went wrong!");
+        }
+
     };
 
     copy = (e) => {
