@@ -80,7 +80,7 @@ export default class UrlTable extends Component {
     render() {
         return (
             <section className="click-list">
-                <div className="container">
+                <div className="container content-container">
                     <div className="statictics-container">
                         <div className="table-row table-header">
                             <div className="cell">Short</div>

@@ -48,23 +48,26 @@ export default class SignUp extends Component {
                                             username: username,
                                             email: email,
                                             password: password,
-                                            passwordConfirmation: passwordConfirmation
+                                            password_confirmation: passwordConfirmation
                                         });
-        if (res === true) {
+        const {data: {succeeded, msg}} = res;
+        let message;
+        if (succeeded === true) {
             this.setState({
                 signedUp: true
             });
-            alert("Success! You can login with credentials provided on registration.");
+            message = `Success! ${msg || ''} You can login with credentials provided on registration.`;
         } else {
-            alert("Registration data is incorrect!")
+            message = msg || "Registration failed!"
         }
+        alert(message)
     };
 
     render() {
         return (
             this.state.signedUp || this.api.loggedIn() ?
                 (
-                    <Redirect path="/"/>
+                    <Redirect to="/"/>
                 ) :
                 (
                     <SignUpLogin onSubmit={this.onSubmit}>

@@ -9,7 +9,9 @@ export default class ShortenerService {
     };
 
     getShorten = (url) => {
-        const encoded = md5(this._removePrefix(url));
+        const encoded = md5(
+            `${localStorage.getItem('userId') || ''}${this._removePrefix(url)}`
+        );
         return encoded.substring(0, this._keyLength);
     };
 

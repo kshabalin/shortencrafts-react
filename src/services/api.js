@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 
 export default class API {
 
-    _baseURL = "https://shortencraftsapi.herokuapp.com/api";
+    _baseURL = "http://localhost:3000/api";
 
     get = async (url, params) => {
         const res = await axios.get(
@@ -43,11 +43,12 @@ export default class API {
         }
     };
 
-    login = async (email, password) => {
+    login = async ({username, password}) => {
         try {
-            const res = await axios.post(`${this._baseURL}/signin`, {auth: {email: email, password: password}});
-            const {data: {jwt}} = res;
+            const res = await axios.post(`${this._baseURL}/signin`, {auth: {email: username, password: password}});
+            const {data: {user_id, jwt}} = res;
             this.setToken(jwt);
+            this.setUserId(user_id);
             return true;
         } catch (e) {
             console.log(`Incorrect login or password! ${e.message}`);
@@ -57,11 +58,9 @@ export default class API {
 
     signup = async (user) => {
         try {
-            await  axios.post(`${this._baseURL}/signup`, {user: user});
-            return true;
+            return await axios.post(`${this._baseURL}/signup`, {user: user});
         } catch (e) {
             console.log(`Failed to register new user! ${e.message}`);
-            return false;
         }
     };
 
@@ -84,8 +83,16 @@ export default class API {
         localStorage.setItem("token", token);
     };
 
+    setUserId = id => {
+        localStorage.setItem("userId", id);
+    };
+
     getToken = () => {
         return localStorage.getItem("token");
+    };
+
+    getUserId = () => {
+        return localStorage.getItem("userId");
     };
 
     getAuthHeader = () => {
@@ -94,6 +101,7 @@ export default class API {
 
     logout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("userId");
     };
 
     getClicks = async (params) => {

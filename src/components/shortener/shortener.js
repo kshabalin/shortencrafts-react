@@ -63,7 +63,7 @@ export default class Shortener extends Component {
 
         return (
             <section className="main">
-                <div className="container">
+                <div className="container content-container">
                     <div className="shorten-container">
                         {shortenForm}
                     </div>

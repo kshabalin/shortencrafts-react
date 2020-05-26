@@ -15,6 +15,42 @@
     margin-top:50px;
 }
 
+.header-logo {
+    margin-left: 10px;
+}
+
+.inner-header .icon {
+    display: none;
+    color:#F16534;
+    padding-right: 20px;
+}
+
+.inner-header .icon:active {
+    opacity:.5;
+}
+
+@media screen and (max-width: 600px) {
+    .nav a {
+        display: none;
+    }
+    .inner-header .icon {
+        display: block;
+    }
+
+    .nav.responsive {
+        position: absolute;
+        top: 90px;
+        background-color: white;
+        width: 100%;
+        border-bottom: 1px solid red;
+    }
+    .nav.responsive a {
+        display: block;
+        margin-top: 5px;
+        padding-left: 30px;
+    }
+}
+
 .header-logo img {
     display:block;
 }

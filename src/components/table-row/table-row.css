@@ -26,13 +26,13 @@
 }
 .cell.long a {
     color: #1181e3;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .cell.short a, .cell.long a {
     text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .cell.long a:hover, .cell.short a:hover {

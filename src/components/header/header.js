@@ -9,7 +9,25 @@ import './header.css';
 export default class Header extends Component {
     api = new API();
 
+    state = {
+        expanded: false
+    };
+
+    onBarsClicked = () => {
+        this.setState(prevState => ({
+            expanded: !prevState.expanded
+        }));
+        // const x = document.getElementById("nav");
+        //
+        // if (x.className === "nav") {
+        //     x.className += " responsive";
+        // } else {
+        //     x.className = "nav";
+        // }
+    };
+
     render() {
+        const menuClass = `nav ${this.state.expanded ? "responsive" : ""}`;
         const menu = this.props.loggedIn || this.api.loggedIn() ?
             (
                 <>
@@ -33,9 +51,12 @@ export default class Header extends Component {
                                 <Logo />
                             </Link>
                         </div>
-                        <nav className="nav">
+                        <nav id="nav" className={menuClass}>
                             {menu}
                         </nav>
+                        <a href="#" className="icon" onClick={this.onBarsClicked}>
+                            <i className="fa fa-bars fa-3x"></i>
+                        </a>
                     </div>
                 </div>
             </header>

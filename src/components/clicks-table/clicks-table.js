@@ -165,7 +165,7 @@ export default class ClicksTable extends Component {
 
         return (
             <section className="click-list">
-                <div className="container">
+                <div className="container content-container">
                     <div className="statictics-container">
 
                         <div className="stats-filter-container">

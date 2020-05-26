@@ -10,6 +10,7 @@
     "axios": "^0.19.0",
     "base62": "^2.0.1",
     "crcf-skeleton": "0.0.2",
+    "emailjs-com": "^2.4.0",
     "jwt-decode": "^2.2.0",
     "md5": "^2.2.1",
     "react": "^16.8.6",

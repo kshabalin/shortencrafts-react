@@ -36,8 +36,7 @@ export default class Login extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
-        const {username, password} = this.state;
-        const res = await this.api.login(username, password);
+        const res = await this.api.login(this.state);
         if (res === true) {
             this.setState({
                 loggedIn: true
