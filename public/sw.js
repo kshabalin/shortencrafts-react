@@ -7,7 +7,10 @@ const appAssets = [
     'images/flame.png',
     'images/logo.png',
     'images/sync.png',
-    'css/font-awesome.css'
+    'css/font-awesome.css',
+    'static/js/bundle.js',
+    'static/js/0.chunk.js',
+    'static/js/main.chunk.js'
 ];
 
 
