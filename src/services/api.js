@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 
 export default class API {
 
-    _baseURL = "http://localhost:3000/api";
+    _baseURL = "https://shortencraftsapi.herokuapp.com/api";
 
     get = async (url, params) => {
         const res = await axios.get(
