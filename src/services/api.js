@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 
 export default class API {
 
-    _baseURL = "https://shortencraftsapi.herokuapp.com/api";
+    _baseURL = "http://localhost:3000/api";
 
     get = async (url, params) => {
         const res = await axios.get(
@@ -35,12 +35,8 @@ export default class API {
     };
 
     shorten = async (short, long) => {
-        try {
-            const res = await this.post('/links', {link: {url_hash: short, url: long}});
-            return this._transformLink(res.data.data);
-        } catch (e) {
-            console.log(`Failed to save shorten! ${e.message}`);
-        }
+        const res = await this.post('/links', {link: {url_hash: short, url: long}});
+        return this._transformLink(res.data.data);
     };
 
     login = async ({username, password}) => {

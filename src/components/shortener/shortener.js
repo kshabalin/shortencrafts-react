@@ -12,8 +12,14 @@ export default class Shortener extends Component {
 
     state = {
         value: '',
-        longUrl: ''
+        longUrl: '',
+        errors: null
     };
+
+    get errors() {
+        const errors = this.state.errors;
+        return errors ? <span className="error-text">{errors}</span> : null
+    }
 
     onValueChange = (e) => {
         this.setState({
@@ -26,16 +32,19 @@ export default class Shortener extends Component {
         e.preventDefault();
         const value = this.state.value;
         const url_hash = this.shortenerService.getShorten(value);
-        const link = await this.api.shorten(url_hash, value);
 
-        if (link) {
+        this.api.shorten(url_hash, value)
+            .then((link) => {
+               this.setState({
+                    longUrl: value,
+                    value: link.short,
+                    errors: null
+                })
+        }).catch((e) => {
             this.setState({
-                longUrl: value,
-                value: link.short
-            });
-        } else {
-            alert("Failed to shorten a link! Something went wrong!");
-        }
+                errors: e.message
+            })
+        })
 
     };
 
@@ -48,17 +57,18 @@ export default class Shortener extends Component {
 
     render() {
 
-        const {longUrl} = this.state;
+        const { longUrl } = this.state;
 
         const shortenForm = longUrl ? <ShortenForm value={this.state.value}
                                                    onSubmit={this.copy}
                                                    onChange={this.onValueChange}
                                                    buttonValue="Copy"
-                                                   longLink={<LongLink url={longUrl}/>}/> :
+                                                   longLink={<LongLink url={longUrl}/>} /> :
                                       <ShortenForm value={this.state.value}
                                                    onSubmit={this.shorten}
                                                    onChange={this.onValueChange}
-                                                   buttonValue="Shorten"/>;
+                                                   buttonValue="Shorten"
+                                                   errors={this.errors}/>;
 
 
         return (
@@ -73,7 +83,7 @@ export default class Shortener extends Component {
     }
 };
 
-const ShortenForm = ({onSubmit, onChange, value, buttonValue, longLink}) => {
+const ShortenForm = ({onSubmit, onChange, value, buttonValue, longLink, errors}) => {
     return (
         <React.Fragment>
             <form className="shorten-form" onSubmit={onSubmit}>
@@ -85,6 +95,7 @@ const ShortenForm = ({onSubmit, onChange, value, buttonValue, longLink}) => {
                 />
                 <button className="long-url-button gradient">{buttonValue}</button>
             </form>
+            {errors}
             {longLink}
         </React.Fragment>
     );

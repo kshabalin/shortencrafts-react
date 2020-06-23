@@ -50,3 +50,16 @@
     top:0;
     width:153px;
 }
+
+@media screen and (max-width: 600px) {
+    .long-url-button {
+        position:static;
+        width: 100%;
+        border-radius: 3px;
+        margin-top: 20px;
+    }
+}
+
+.error-text {
+    color: red;
+}
